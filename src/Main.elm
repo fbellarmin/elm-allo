@@ -298,17 +298,7 @@ layout model =
         ]
 
 
-displayErrorsOrLogs : Float -> Float -> Float -> ShowErrorsOrLogs -> List String -> List String -> Element Msg
-displayErrorsOrLogs totalWidth totalHeight availableHeight showErrorsOrLogs errors logs =
-    case showErrorsOrLogs of
-        ShowNone ->
-            Element.none
 
-        ShowErrors ->
-            showLogs totalWidth totalHeight availableHeight errors
-
-        ShowLogs ->
-            showLogs totalWidth totalHeight availableHeight logs
 
 
 showLogs : Float -> Float -> Float -> List String -> Element Msg
