@@ -186,16 +186,16 @@ update msg model =
             )
 
         -- JavaScript error
-        --Error err ->
-        --    ( { model | errors = err :: model.errors }
-        --    , Cmd.none
-        --    )
+        Error err ->
+            ( { model | errors = err :: model.errors }
+            , Cmd.none
+            )
 
         -- JavaScript log
-        --Log logMsg ->
-        --    ( { model | logs = logMsg :: model.logs }
-        --    , Cmd.none
-        --    )
+        Log logMsg ->
+            ( { model | logs = logMsg :: model.logs }
+            , Cmd.none
+            )
 
         ToggleShowErrors ->
             let
@@ -225,18 +225,18 @@ update msg model =
             , Cmd.none
             )
 
---        CopyButtonClicked ->
---            ( model
---            , case model.showErrorsOrLogs of
---                ShowNone ->
---                    Cmd.none
+        CopyButtonClicked ->
+            ( model
+            , case model.showErrorsOrLogs of
+                ShowNone ->
+                    Cmd.none
 
---                ShowErrors ->
---                    copyToClipboard (String.join "\n\n" <| List.reverse model.errors)
---
---                ShowLogs ->
---                    copyToClipboard (String.join "\n\n" <| List.reverse model.logs)
---            )
+                ShowErrors ->
+                    copyToClipboard (String.join "\n\n" <| List.reverse model.errors)
+
+                ShowLogs ->
+                    copyToClipboard (String.join "\n\n" <| List.reverse model.logs)
+            )
 
 
 subscriptions : Model -> Sub Msg
@@ -709,17 +709,17 @@ leaveButton height =
         )
 
 
---copyButton : Element Msg
---copyButton =
---    Input.button
---        [ Element.alignTop
---        , Element.alignRight
---        , Element.padding UI.spacing
---        , Element.htmlAttribute <| HA.style "outline" "none"
---        ]
---        { onPress = Just CopyButtonClicked
---        , label = roundButton UI.darkGrey UI.copyButtonSize Icon.copy
---        }
+copyButton : Element Msg
+copyButton =
+    Input.button
+        [ Element.alignTop
+        , Element.alignRight
+        , Element.padding UI.spacing
+        , Element.htmlAttribute <| HA.style "outline" "none"
+        ]
+        { onPress = Just CopyButtonClicked
+        , label = roundButton UI.darkGrey UI.copyButtonSize Icon.copy
+        }
 
 
 roundButton : Element.Color -> Int -> Icon -> Element msg
