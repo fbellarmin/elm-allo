@@ -34,7 +34,7 @@ joinButtonSize =
 
 leaveButtonSize : Int
 leaveButtonSize =
-    80
+    40
 
 
 copyButtonSize : Int
