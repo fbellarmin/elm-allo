@@ -298,7 +298,22 @@ layout model =
         ]
 
 
+displayErrorsOrLogs : Float -> Float -> Float -> ShowErrorsOrLogs -> List String -> List String -> Element Msg
+displayErrorsOrLogs totalWidth totalHeight availableHeight showErrorsOrLogs errors logs =
+    case showErrorsOrLogs of
+        ShowNone ->
+            Element.none
 
+<<<<<<< HEAD
+=======
+        ShowErrors ->
+            showLogs totalWidth totalHeight availableHeight errors
+
+        ShowLogs ->
+            showLogs totalWidth totalHeight availableHeight logs
+
+
+>>>>>>> parent of 55451d7... asd
 showLogs : Float -> Float -> Float -> List String -> Element Msg
 showLogs totalWidth totalHeight availableHeight logs =
     Element.column
