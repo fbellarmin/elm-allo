@@ -281,7 +281,7 @@ layout model =
     Element.column
         [ Element.width Element.fill
         , Element.height Element.fill
-        , Element.inFront (displayErrorsOrLogs model.width model.height availableHeight model.showErrorsOrLogs model.errors model.logs)
+        , Element.inFront (model.width model.height availableHeight model.showErrorsOrLogs model.errors model.logs)
         ]
         [ Element.row [ Element.padding UI.spacing, Element.width Element.fill ]
             [ showLogsButton model.device model.showErrorsOrLogs model.logs
@@ -296,8 +296,6 @@ layout model =
         , Element.html <|
             videoStreams model.width availableHeight model.joined model.remotePeers
         ]
-
-
 
 
 
